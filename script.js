@@ -1,13 +1,14 @@
 
 const container = document.querySelector(".container");
+const grid = document.querySelector(".grid");
 
-let x = 16;
-let y = 16;
+let gridNum=10;
+let newSize = 800/gridNum;
+
+let x = 10;
+let y = 10;
 let newRow;
 let newGrid;
-
-row.setAttribute('class', "row");
-grid.setAttribute('class', "grid");
 
 function createGrid(x, y) {
 
@@ -19,9 +20,15 @@ function createGrid(x, y) {
         for(let j = 0; j<x; j++){
             newGrid = document.createElement('div');
             newGrid.className = "grid";
+            resizeGrid(newGrid);
             newRow.appendChild(newGrid);
         }
     }
-
-
 }
+
+function resizeGrid(newGrid){
+   newGrid.style.height = `${newSize-2}px`;
+   newGrid.style.width = `${newSize-1}px`;
+}
+
+createGrid(x,y);
