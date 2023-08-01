@@ -9,11 +9,19 @@ let newRow;
 let newGrid;
 
 function userPrompt(){
-    gridNum = prompt("What do you want the side lengths to be? \(Enter a value between 1 and 100 \)","10");
+    gridNum = parseInt(prompt("What do you want the side lengths to be? \(Enter a value between 1 and 100 \)",10));
+
+    if(Number.isInteger(gridNum) && gridNum >=1 && gridNum <=100){
     newSize = 800/gridNum;
     x = y = gridNum;
+    clearGrid();
     initialize();
+    } else {
+        alert("Please enter a valid number from 1 through 100");
+    }
 }
+
+
 
 function clearGrid() {
     containerBod = document.querySelectorAll(".row");
