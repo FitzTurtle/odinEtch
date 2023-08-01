@@ -40,6 +40,12 @@ function initialize() {
 
 function hoverEffect(e) {
     this.style.backgroundColor = "red";
+    if (this.style.opacity){
+        this.style.opacity =  parseFloat(this.style.opacity)+.1;
+    } else if (!this.style.opacity) {
+        this.style.opacity = .1;
+    }
+    console.log(this.style.opacity);
 }
 
 initialize();
