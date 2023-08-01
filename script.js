@@ -38,6 +38,7 @@ function createGrid(x, y) {
         for(let j = 0; j<x; j++){
             newBox = document.createElement('div');
             newBox.className = "gridBorder";
+            resizeBox(newBox);
             newRow.appendChild(newBox);
 
             newGrid = document.createElement('div');
@@ -48,11 +49,15 @@ function createGrid(x, y) {
     }
 }
 
-function resizeGrid(newGrid){
-   newGrid.style.height = `${newSize-2}px`;
-   newGrid.style.width = `${newSize-2}px`;
+function resizeBox(newBox){
+   newBox.style.height = `${newSize-2}px`;
+   newBox.style.width = `${newSize-2}px`;
 }
 
+function resizeGrid(newGrid){
+    newGrid.style.height = `${newSize}px`;
+    newGrid.style.width = `${newSize}px`;
+ }
 
 function initialize() {
     createGrid(x,y);
