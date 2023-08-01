@@ -1,12 +1,10 @@
 
 const container = document.querySelector(".container");
-const grid = document.querySelector(".grid");
 
-let gridNum=10;
+let gridNum=15;
 let newSize = 800/gridNum;
 
-let x = 10;
-let y = 10;
+let x = y = gridNum;
 let newRow;
 let newGrid;
 
@@ -31,4 +29,17 @@ function resizeGrid(newGrid){
    newGrid.style.width = `${newSize-1}px`;
 }
 
-createGrid(x,y);
+
+function initialize() {
+    createGrid(x,y);
+
+
+    const grids = document.querySelectorAll(".grid");
+    grids.forEach(grid => grid.addEventListener('mouseenter', hoverEffect));
+}
+
+function hoverEffect(e) {
+    this.style.backgroundColor = "red";
+}
+
+initialize();
