@@ -36,17 +36,21 @@ function createGrid(x, y) {
         newRow.className = "row";
         container.appendChild(newRow);
         for(let j = 0; j<x; j++){
+            newBox = document.createElement('div');
+            newBox.className = "gridBorder";
+            newRow.appendChild(newBox);
+
             newGrid = document.createElement('div');
             newGrid.className = "grid";
             resizeGrid(newGrid);
-            newRow.appendChild(newGrid);
+            newBox.appendChild(newGrid);
         }
     }
 }
 
 function resizeGrid(newGrid){
    newGrid.style.height = `${newSize-2}px`;
-   newGrid.style.width = `${newSize-1}px`;
+   newGrid.style.width = `${newSize-2}px`;
 }
 
 
