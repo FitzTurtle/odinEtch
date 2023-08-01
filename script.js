@@ -1,12 +1,24 @@
 const colors = ["red", "yellow", "orange", "blue", "indigo", "green", "violet", "purple"];
 const container = document.querySelector(".container");
 
-let gridNum=15;
+let gridNum=16;
 let newSize = 800/gridNum;
-
 let x = y = gridNum;
+
 let newRow;
 let newGrid;
+
+function userPrompt(){
+    gridNum = prompt("What do you want the side lengths to be? \(Enter a value between 1 and 100 \)","10");
+    newSize = 800/gridNum;
+    x = y = gridNum;
+    initialize();
+}
+
+function clearGrid() {
+    containerBod = document.querySelectorAll(".row");
+    containerBod.forEach(row => container.removeChild(row));
+}
 
 function createGrid(x, y) {
 
@@ -32,8 +44,6 @@ function resizeGrid(newGrid){
 
 function initialize() {
     createGrid(x,y);
-
-
     const grids = document.querySelectorAll(".grid");
     grids.forEach(grid => grid.addEventListener('mouseenter', hoverEffect));
 }
@@ -45,7 +55,6 @@ function hoverEffect(e) {
     } else if (!this.style.opacity) {
         this.style.opacity = .1;
     }
-    console.log(this.style.opacity);
 }
 
 function colorPicker () {
