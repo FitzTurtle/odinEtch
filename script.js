@@ -1,4 +1,4 @@
-
+const colors = ["red", "yellow", "orange", "blue", "indigo", "green", "violet", "purple"];
 const container = document.querySelector(".container");
 
 let gridNum=15;
@@ -39,13 +39,17 @@ function initialize() {
 }
 
 function hoverEffect(e) {
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = colorPicker();
     if (this.style.opacity && parseFloat(this.style.opacity) < 1){
         this.style.opacity =  parseFloat(this.style.opacity)+.1;
     } else if (!this.style.opacity) {
         this.style.opacity = .1;
     }
     console.log(this.style.opacity);
+}
+
+function colorPicker () {
+    return colors[Math.floor(Math.random()*8)];
 }
 
 initialize();
